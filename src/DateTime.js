@@ -20,7 +20,9 @@ export default class DateTime {
   }
 
   getMonthName (mode = 'long') {
-    return this._date.toLocaleString('en-US', { month: mode })
+    return this._date
+      .toLocaleString('fr-FR', { month: mode })
+      .toLocaleUpperCase()
   }
 
   getFullYear () {
@@ -36,7 +38,7 @@ export default class DateTime {
   }
 
   getDayName (mode = 'long') {
-    return this._date.toLocaleString('en-US', { weekday: mode })
+    return this._date.toLocaleString('fr-FR', { weekday: mode })
   }
 
   getNextDay () {
@@ -127,6 +129,10 @@ export default class DateTime {
   }
 
   getFirstWeekdayOfMonth () {
-    return new this.constructor(this.getFullYear(), this.getMonth(), 1).getDay()
+    return new this.constructor(
+      this.getFullYear(),
+      this.getMonth(),
+      1
+    ).getDay()
   }
 }
